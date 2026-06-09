@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Similares - Iniciar Sesión</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0a4d8c,#4fa3ff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-container{
+    background:white;
+    width:400px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#0a4d8c;
+    margin-bottom:5px;
+}
+
+p{
+    color:gray;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#0a4d8c;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0a4d8c;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#083866;
+}
+
+.boton-inicio{
+    width:auto !important;
+    padding:10px 20px;
+    background:#f4c542;
+    color:black;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.boton-inicio:hover{
+    background:#e0b52f;
+}
+
+.registro{
+    margin-top:15px;
+}
+
+.registro a{
+    color:#0a4d8c;
+    text-decoration:none;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login-container">
+
+    <button type="button"
+            class="boton-inicio"
+            onclick="location.href='index.html'">
+        🏠 Inicio
+    </button>
+
+    <div class="logo">
+        <img src="imagenes/simi1.png" width="273" height="183" alt="">
+    </div>
+
+    <h1>Hospital Similares</h1>
+    <p>Acceso al sistema de citas médicas</p>
+
+    <form action="validar.php" method="POST">
+
+        <div class="input-group">
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Contraseña" required>
+        </div>
+
+        <button type="submit">Iniciar Sesión</button>
+
+    </form>
+
+    <div class="registro">
+        ¿No tienes cuenta?
+        <a href="registrarcuenta.html">Registrarse</a>
+    </div>
+
+</div>
+
+</body>
+</html>

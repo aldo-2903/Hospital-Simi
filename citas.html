@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Agendar Cita</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+}
+
+header{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.contenedor{
+    width:50%;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0099cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0077a3;
+}
+
+.boton-inicio{
+    width:auto !important;
+    padding:10px 20px;
+    background:#f4c542;
+    color:black;
+    margin:15px;
+    font-size:16px;
+}
+
+.boton-inicio:hover{
+    background:#e0b52f;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Agendar Cita Médica</h1>
+</header>
+
+<center>
+    <button type="button"
+            class="boton-inicio"
+            onclick="location.href='index.html'">
+         Inicio
+    </button>
+</center>
+
+<div class="contenedor">
+
+<form action="guardar_cita.php" method="POST">
+
+<label>Nombre completo:</label>
+<input type="text" name="nombre" required>
+
+<label>Correo electrónico:</label>
+<input type="email" name="correo" required>
+
+<label>Teléfono:</label>
+<input type="tel" name="telefono" required>
+
+<label>Especialidad:</label>
+<select name="especialidad" required>
+    <option value="">Seleccione</option>
+    <option>Medicina General</option>
+    <option>Pediatría</option>
+    <option>Cardiología</option>
+    <option>Traumatología</option>
+</select>
+
+<label>Fecha:</label>
+<input type="date" name="fecha" required>
+
+<label>Hora:</label>
+<input type="time" name="hora" required>
+
+<button type="submit">Agendar Cita</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

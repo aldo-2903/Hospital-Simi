@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios - Hospital Similares</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f9fc;
+}
+
+header{
+    background:#0077b6;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+nav{
+    background:#023e8a;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    text-decoration:none;
+}
+
+nav button{
+    background:#0096c7;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+nav button:hover{
+    transform:scale(1.1);
+    background:#00b4d8;
+}
+
+.contenedor{
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+}
+
+.servicios{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.tarjeta{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.tarjeta:hover{
+    transform:translateY(-10px);
+}
+
+.tarjeta h3{
+    color:#0077b6;
+    margin-bottom:10px;
+}
+
+footer{
+    background:#023e8a;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Servicios Médicos</h1>
+	<img src="imagen.jpg" alt="Hospital" style="float:right;">
+    <p>Hospital Similares</p>
+</header>
+
+<nav>
+    <a href="index.html">
+        <button>Volver al Inicio</button>
+    </a>
+</nav>
+
+<div class="contenedor">
+
+    <h2 style="text-align:center; margin-bottom:30px;">
+        Nuestros Servicios
+    </h2>
+
+    <div class="servicios">
+
+        <div class="tarjeta">
+            <h3>Urgencias 24/7</h3>
+            <p>Atención médica inmediata todos los días.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Consultas Generales</h3>
+            <p>Atención por médicos capacitados.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Laboratorio Clínico</h3>
+            <p>Análisis y estudios clínicos especializados.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Rayos X</h3>
+            <p>Diagnósticos mediante imágenes médicas.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Hospitalización</h3>
+            <p>Habitaciones cómodas y atención continua.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Farmacia</h3>
+            <p>Medicamentos disponibles para nuestros pacientes.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Hospital Similares - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
