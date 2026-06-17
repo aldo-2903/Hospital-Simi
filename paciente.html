@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>completar paciente</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0057B8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.contenedor{
+    background:white;
+    width:450px;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+    color:#0077b6;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#0077b6;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#00b4d8;
+    transform:scale(1.05);
+}
+
+a{
+    text-decoration:none;
+}
+
+.regresar{
+    background:#6c757d;
+}
+
+.regresar:hover{
+    background:#5a6268;
+}
+	input2, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+
+    <h1> PACIENTE</h1>
+	<center>
+	  <img src="imagenes/pacien.png" width="225" height="163" alt=""/>
+	</center>
+
+    <form>
+
+        <input type="text" placeholder="Apellido paterno" required>
+
+        <input type="email" placeholder="Apellido materno" required>
+
+      <label>Fecha nacimiento</label>
+      <input type="date" name="fecha nacimiento" required>
+
+      
+      <select name="Sexo" required>
+    <option value="">Sexo</option>
+    <option>Masculino</option>
+    <option>Femenino</option>
+    <option>Prefiero no decirlo</option>
+   
+</select>
+
+        <input type="password" placeholder="Curp" required>
+
+      <input type="tel" placeholder="Tipo de sangre">
+
+        <button type="submit">Completar</button>
+
+  </form>
+
+    <br>
+
+    <a href="index.html">
+        <button class="regresar">Volver al Inicio</button>
+    </a>
+
+</div>
+
+
+</body>
+</html>
