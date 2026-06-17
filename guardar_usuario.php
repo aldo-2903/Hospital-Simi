@@ -46,4 +46,5 @@ $stmt->execute([
     $telefono,
     $passwordHash
 ]);
+echo "ok";
 ?>
