@@ -36,16 +36,4 @@ $stmt->execute([
     $telefono,
     $passwordHash
 ]);
-
-echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-<script>
-Swal.fire({
-  window.location.href = 'https://hospital-simi-production.up.railway.app/index.html',
-  title: '¡Éxito!',
-  text: 'Usuario registrado correctamente',
-  icon: 'success',
-  confirmButtonText: 'OK';
-</script>";
-exit();
-
 ?>
