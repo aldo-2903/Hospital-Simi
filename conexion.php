@@ -3,7 +3,7 @@
 $host = "mysql.railway.internal";
 $usuario = "root";
 $password = "IreqgJNcxhUWSJLalBlubYbTbgIBFqbH";
-$basedatos = "hospital";
+$basedatos = "railway";
 $puerto = 3306;
 
 $conexion = new mysqli(
