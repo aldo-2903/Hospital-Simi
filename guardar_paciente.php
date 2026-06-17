@@ -9,7 +9,7 @@ if(!isset($_SESSION['usuario_id'])){
 
 $idUsuario = $_SESSION['usuario_id'];
 $sql = "
-SELECT nombre, correo, telefono
+SELECT nombre
 FROM usuarios
 WHERE id_usuario = ?
 ";
@@ -20,8 +20,6 @@ $stmt->execute([$idUsuario]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $nombre = $usuario['nombre'];
-$correo = $usuario['correo'];
-$telefono = $usuario['telefono'];
 
 $sql = "
 INSERT INTO paciente
@@ -31,8 +29,6 @@ nombre,
 apellido_paterno,
 apellido_materno,
 fecha_nacimiento,
-correo,
-telefono,
 sexo,
 curp,
 direccion,
@@ -41,8 +37,6 @@ tipo_sangre
 )
 VALUES
 (
-?,
-?,
 ?,
 ?,
 ?,
@@ -66,8 +60,6 @@ $stmt->execute([
     $_POST['apellido_materno'],
     $_POST['fecha_nacimiento'],
     $_POST['sexo'],
-    $correo,
-    $telefono,
     $_POST['curp'],
     $_POST['direccion'],
     $_POST['codigo_postal'],
