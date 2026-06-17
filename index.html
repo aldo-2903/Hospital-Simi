@@ -63,6 +63,7 @@ nav{
 
 nav button{
 	background: white;
+	text-color:black;
     color:white;
     border:none;
     padding:12px 25px;
@@ -175,7 +176,7 @@ nav .login:hover{
     <button id="btnCita" onclick="location.href='#servicios'">Citas</button>
     <button onclick="location.href='#especialidades'"><a href="servicios.html">Servicios</a></button>
     <button class="login" onclick="location.href='#contacto'"><a href="iniciar.html">Iniciar sesion</a></button>
-	<button class="login" onclick="location.href='#contacto'"><a href="registrarcuenta.html">Crear Cuenta</a></button>
+	<button id="btnLogout">Cerrar sesión</button>
 </nav>
 	
 <div id="toast" class="toast"></div>
@@ -191,7 +192,7 @@ nav .login:hover{
 
     setTimeout(() => {
         toast.classList.remove("show", "success", "error");
-    }, 4000);
+    }, 3000);
 }
 		
     document.getElementById("btnCita").addEventListener("click", () => {
@@ -207,7 +208,7 @@ nav .login:hover{
 
                 setTimeout(() => {
                     window.location.href = "iniciar.html";
-                }, 4000);
+                }, 3000);
             }
 
         });
@@ -215,6 +216,28 @@ nav .login:hover{
     });
     </script>
 
+	<script>
+document.getElementById("btnLogout").addEventListener("click", () => {
+
+    fetch("logout.php")
+    .then(res => res.text())
+    .then(data => {
+
+        if(data.trim() === "ok"){
+
+            showToast("Sesión cerrada", "success");
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+
+        }
+
+    });
+
+});
+</script>
+	
 <section class="hero" id="inicio">
     <h1>tu bienestar nuestra prioridad</h1>
 </section>
