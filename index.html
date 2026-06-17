@@ -175,7 +175,6 @@ fetch("estado_sesion.php")
     if(data.trim() === "si"){
 
         document.getElementById("btnLogin").style.display = "none";
-        document.getElementById("btnRegistro").style.display = "none";
 
     }else{
 
@@ -196,8 +195,8 @@ fetch("estado_sesion.php")
     <button onclick="location.href='#inicio'"><a href="index.html">Inicio</a></button>
     <button id="btnCita" onclick="location.href='#servicios'">Citas</button>
     <button onclick="location.href='#especialidades'"><a href="servicios.html">Servicios</a></button>
-    <button class="login" onclick="location.href='#contacto'"><a href="iniciar.html">Iniciar sesion</a></button>
-	<button id="btnLogout">Cerrar sesión</button>
+    <button id="btnLogin" class="login" onclick="location.href='#contacto'"><a href="iniciar.html">Iniciar sesion</a></button>
+	<button id="btnLogout" class="login">Cerrar sesión</button>
 </nav>
 	
 <div id="toast" class="toast"></div>
