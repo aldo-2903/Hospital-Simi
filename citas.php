@@ -28,6 +28,36 @@ $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 <title>Agendar Cita</title>
 
 <style>
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    background: #333;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-family: Arial;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+.toast.error {
+    background: #dc3545;
+}
+    
 body{
     font-family: Arial, sans-serif;
     background:#f4f4f4;
@@ -109,7 +139,7 @@ button:hover{
 
 <div class="contenedor">
 
-<form id="guardar_cita">
+<form id="formCita">
 
 <label>Nombre:</label>
 <input type="text" name="nombre" value="<?= htmlspecialchars($usuario['nombre']) ?>" readonly>
@@ -151,6 +181,8 @@ button:hover{
 
 </div>
 
+    <div id="toast" class="toast"></div>
+
 <script>
 const hoy = new Date().toISOString().split("T")[0];
 document.getElementById("fecha").min = hoy;
@@ -173,6 +205,29 @@ const contador = document.getElementById("contador");
         this.value = partes[0] + ":00";
     }
 
+});
+</script>
+
+<script>
+    document.getElementById("formCita").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const datos = new FormData(this);
+
+    fetch("guardar_cita.php", {
+        method: "POST",
+        body: datos
+    })
+    .then(res => res.text())
+    .then(data => {
+    
+        if(data.trim() === "ok"){
+            showToast("Cita agendada correctamente", "success");
+        }else{
+            showToast(data, "error");
+        }
+    });
 });
 </script>
 
