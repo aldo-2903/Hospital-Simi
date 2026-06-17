@@ -61,7 +61,6 @@ input, select{
 input[readonly]{
     background:#f0f0f0;
     color:#555;
-    cursor:not-allowed;
 }
 
 button{
