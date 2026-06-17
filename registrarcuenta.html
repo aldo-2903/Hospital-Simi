@@ -7,6 +7,34 @@
 
 <style>
 
+    .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    font-family: Arial;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+.toast.error {
+    background: #dc3545;
+}
+
 *{
     margin:0;
     padding:0;
@@ -96,7 +124,20 @@ a{
 
     </form>
     
+    <div id="toast" class="toast"></div>
+    
     <script>
+
+    function showToast(message, type = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.className = "toast show " + type;
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
 document.getElementById("formUsuario").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -110,11 +151,11 @@ document.getElementById("formUsuario").addEventListener("submit", function(e) {
     .then(data => {
 
     if (data.trim() === "ok") {
-        alert("Usuario registrado correctamente");
+         showToast("Usuario registrado correctamente", "success");
         document.getElementById("formUsuario").reset();
     } 
     else if (data.includes("correo_duplicado")) {
-        alert("Este correo ya está registrado");
+        showToast("Este correo ya está registrado", "error");
     } 
     else {
         alert("Error: " + data);
