@@ -9,7 +9,7 @@ $puerto = 51145;
 try {
 
     $conexion = new PDO(
-        "mysql:host=$host;port=$puerto;dbname=$bd;charset=utf8",
+        "mysql:host=$host;port=$puerto;dbname=$basedatos;charset=utf8",
         $usuario,
         $password
     );
