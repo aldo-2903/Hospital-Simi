@@ -10,7 +10,7 @@ try {
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "SELECT id FROM usuarios WHERE correo = ?";
+    $sql = "SELECT correo FROM usuarios WHERE correo = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$correo]);
 
