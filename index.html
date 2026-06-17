@@ -78,6 +78,7 @@ nav button{
 nav button:hover{
     transform:scale(1.15);
     background:#00b4d8;
+	text.color:black;
 }
 
 .hero{
@@ -153,6 +154,25 @@ nav .login:hover{
     transform:scale(1.15);
     background:#ffd60a;
 }
+
+	nav .logout{
+    background:#dc3545;
+    color:black;
+	text-color:white;
+    border:none;
+    padding:12px 25px;
+    margin:5px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:all 0.3s ease;
+}
+
+nav .login:hover{
+    transform:scale(1.15);
+    background:#dc3545;
+}
+	
 	.logo{
     position:absolute;
     right:20px;
@@ -192,11 +212,11 @@ fetch("estado_sesion.php")
 </header>
 
 <nav>
-    <button onclick="location.href='#inicio'"><a href="index.html">Inicio</a></button>
-    <button id="btnCita" onclick="location.href='#servicios'">Citas</button>
-    <button onclick="location.href='#especialidades'"><a href="servicios.html">Servicios</a></button>
-    <button id="btnLogin" class="login" onclick="location.href='#contacto'"><a href="iniciar.html">Iniciar sesion</a></button>
-	<button id="btnLogout" class="login">Cerrar sesión</button>
+    <button onclick="location.href="index.html">Inicio</button>
+    <button id="btnCita">Citas</button>
+    <button onclick="location.href="servicios.html">Servicios</button>
+    <button id="btnLogin" class="login" onclick="location.href="iniciar.html">Iniciar sesion</button>
+	<button id="btnLogout" class="logout">Cerrar sesión</button>
 </nav>
 	
 <div id="toast" class="toast"></div>
