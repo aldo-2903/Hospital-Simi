@@ -138,7 +138,7 @@ button:hover{
 <input type="date" id="fecha" name="fecha" required>
 
 <label>Hora:</label>
-<input type="time" name="hora" min="07:00" max="22:00" step="3600" required>
+<input type="time" id="hora" name="hora" min="07:00" max="22:00" step="3600" required>
 
 <label>Motivo De Consulta:</label>
 <input type="textarea" id="motivo" name="motivo_consulta" maxlength="99">
@@ -161,6 +161,17 @@ const contador = document.getElementById("contador");
 
     motivo.addEventListener("input", () => {
     contador.textContent = motivo.value.length + " / 99";
+});
+</script>
+
+<script>
+    document.getElementById("hora").addEventListener("change", function() {
+    let partes = this.value.split(":");
+        
+    if(partes.length >= 2){
+        this.value = partes[0] + ":00";
+    }
+
 });
 </script>
 
