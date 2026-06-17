@@ -6,18 +6,19 @@ $password = "IreqgJNcxhUWSJLalBlubYbTbgIBFqbH";
 $basedatos = "railway";
 $puerto = 51145;
 
-$conexion = new mysqli(
-    $host,
-    $usuario,
-    $password,
-    $basedatos,
-    $puerto
-);
+try {
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+    $conexion = new PDO(
+        "mysql:host=$host;port=$puerto;dbname=$bd;charset=utf8",
+        $usuario,
+        $password
+    );
 
-echo "Conexión exitosa";
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    echo "Conexión exitosa";
+
+} catch (PDOException $e) {
+
+    die("Error: " . $e->getMessage());
 ?>
