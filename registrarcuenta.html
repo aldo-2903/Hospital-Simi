@@ -111,6 +111,7 @@ document.getElementById("formUsuario").addEventListener("submit", function(e) {
 
     if (data.trim() === "ok") {
         alert("Usuario registrado correctamente");
+        document.getElementById("formUsuario").reset();
     } 
     else if (data.includes("correo_duplicado")) {
         alert("Este correo ya está registrado");
