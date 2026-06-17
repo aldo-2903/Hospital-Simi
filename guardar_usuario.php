@@ -2,10 +2,10 @@
 
 include("conexion.php");
 
-$nombre = $_POST['Nombre Completo'];
-$correo = $_POST['Correo Electrónico'];
-$telefono = $_POST['Número Telefónico'];
-$password = $_POST['Contraseña'];
+$nombre = $_POST['text'];
+$correo = $_POST['email'];
+$telefono = $_POST['tel'];
+$password = $_POST['password'];
 
 $passwordHash = password_hash(
     $password,
