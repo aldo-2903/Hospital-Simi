@@ -87,32 +87,42 @@ a{
 
 <div class="contenedor">
 
-    <h1> PACIENTE</h1>
+    <h1> PERFIL DEL PACIENTE</h1>
 	<center>
 	  <img src="imagen2/pacien.png" width="225" height="163" alt=""/>
 	</center>
 
-    <form>
+    <form id="formPaicente">
 
-        <input type="text" placeholder="Apellido paterno" required>
+        <input type="text" name=apellido_paterno placeholder="Apellido paterno" required>
 
-        <input type="email" placeholder="Apellido materno" required>
+        <input type="text" name=apellido_materno placeholder="Apellido materno" required>
 
       <label>Fecha nacimiento</label>
-      <input type="date" name="fecha nacimiento" required>
+      <input type="date" name="fecha_nacimiento" required>
 
       
-      <select name="Sexo" required>
-    <option value="">Sexo</option>
-    <option>Masculino</option>
-    <option>Femenino</option>
-    <option>Prefiero no decirlo</option>
-   
-</select>
+     	 <select name="sexo" placeholder="Sexo" required>
+    		<option>Masculino</option>
+    		<option>Femenino</option>
+	</select>
 
-        <input type="password" placeholder="Curp" required>
+    <input type="text" name="curp" placeholder="Curp" required>
+		
+	<input type="text" name="direccion" placeholder="Direccion" required>
+		
+	<input type="text" name="codigo_postal" placeholder="Codigo Postal" required>
 
-      <input type="tel" placeholder="Tipo de sangre">
+    	<select name="tipo_sangre" placeholder="Tipo de Sangre" required>
+    		<option>A+</option>
+    		<option>A-</option>
+			<option>B+</option>
+    		<option>B-</option>
+			<option>AB+</option>
+    		<option>AB-</option>
+			<option>O+</option>
+    		<option>O-</option>
+		</select>
 
         <button type="submit">Completar</button>
 
