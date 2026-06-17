@@ -11,6 +11,10 @@ $passwordHash = password_hash(
     $password,
     PASSWORD_DEFAULT
 );
+echo $nombre . "<br>";
+echo $correo . "<br>";
+echo $telefono . "<br>";
+echo $password . "<br>";
 
 $sql = "
 INSERT INTO usuarios
