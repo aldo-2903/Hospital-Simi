@@ -13,38 +13,23 @@ $passwordHash = password_hash(
 );
 
 $sql = "SELECT id FROM usuarios WHERE correo = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->execute([$correo]);
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([$correo]);
 
-if ($stmt->rowCount() > 0) {
-    echo "error:correo_duplicado";
-    exit;
+    if ($stmt->rowCount() > 0) {
+        echo "error:correo_duplicado";
+        exit;
+    }
+
+    $sql = "INSERT INTO usuarios (nombre, correo, telefono, password)
+            VALUES (?, ?, ?, ?)";
+
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([$nombre, $correo, $telefono, $passwordHash]);
+
+    echo "ok";
+
+} catch (PDOException $e) {
+    echo "error_sql: " . $e->getMessage();
 }
-
-$sql = "
-INSERT INTO usuarios
-(
-nombre,
-correo,
-telefono,
-password
-)
-VALUES
-(
-?,
-?,
-?,
-?
-)
-";
-
-$stmt = $conexion->prepare($sql);
-
-$stmt->execute([
-    $nombre,
-    $correo,
-    $telefono,
-    $passwordHash
-]);
-echo "ok";
 ?>
