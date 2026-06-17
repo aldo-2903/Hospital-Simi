@@ -7,6 +7,35 @@
 
 <style>
 
+	.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    background: #333;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-family: Arial;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+.toast.error {
+    background: #dc3545;
+}
+
 *{
     margin:0;
     padding:0;
@@ -136,6 +165,24 @@ a{
     </a>
 
 </div>
+
+	 <div id="toast" class="toast"></div>
+
+	<script>
+function showToast(message, type = "success") {
+
+    const toast = document.getElementById("toast");
+
+    toast.className = "toast";
+    toast.textContent = message;
+
+    toast.classList.add("show", type);
+
+    setTimeout(() => {
+        toast.classList.remove("show", "success", "error");
+    }, 3000);
+}
+</script>
 	
 	<script>
 document.getElementById("formPaciente").addEventListener("submit", function(e){
@@ -153,13 +200,16 @@ document.getElementById("formPaciente").addEventListener("submit", function(e){
 
         if(data.trim() === "ok"){
 
-            alert("Perfil guardado");
+            showToast("Perfil guardado correctamente", "success");
 
-            window.location.href = "citas.html";
+    		setTimeout(() => {
+        	window.location.href = "citas.html";
+    		}, 2000);
 
         }else{
 
-            alert(data);
+            showToast("Error al guardar el perfil", "error");
+			console.log(data);
 
         }
 
