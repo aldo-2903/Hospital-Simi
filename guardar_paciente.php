@@ -33,7 +33,8 @@ sexo,
 curp,
 direccion,
 codigo_postal,
-tipo_sangre
+tipo_sangre,
+fecha_registro
 )
 VALUES
 (
