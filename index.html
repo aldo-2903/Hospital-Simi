@@ -197,6 +197,7 @@ fetch("estado_sesion.php")
     if(data.trim() === "si"){
 
         document.getElementById("btnLogin").style.display = "none";
+		document.getElementById("mis_citas").style.display = "none";
 
     }else{
 
@@ -218,6 +219,7 @@ fetch("estado_sesion.php")
     <button id="btnCita">Citas</button>
     <button onclick="location.href='servicios.html'">Servicios</button>
     <button id="btnLogin" class="login" onclick="location.href='iniciar.html'">Iniciar sesion</button>
+	<button onclick="location.href='mis_citas.php' id="mis_citas">Mis Citas</button>
 	<button id="btnLogout" class="logout">Cerrar sesión</button>
 </nav>
 	
