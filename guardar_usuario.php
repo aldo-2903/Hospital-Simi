@@ -11,6 +11,16 @@ $passwordHash = password_hash(
     $password,
     PASSWORD_DEFAULT
 );
+
+$sql = "SELECT id FROM usuarios WHERE correo = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->execute([$correo]);
+
+if ($stmt->rowCount() > 0) {
+    echo "error:correo_duplicado";
+    exit;
+}
+
 $sql = "
 INSERT INTO usuarios
 (
