@@ -81,7 +81,7 @@ button:hover{
 
 <div class="contenedor">
 
-<form action="guardar_cita.php" method="POST">
+<form id="guardar_cita">
 
 <label>Nombre completo:</label>
 <input type="text" name="nombre" required>
@@ -92,26 +92,39 @@ button:hover{
 <label>Teléfono:</label>
 <input type="tel" name="telefono" required>
 
-<label>Especialidad:</label>
-<select name="especialidad" required>
-    <option value="">Seleccione</option>
-    <option>Medicina General</option>
-    <option>Pediatría</option>
-    <option>Cardiología</option>
-    <option>Traumatología</option>
+<label>Tipo De Cita:</label>
+<select name="tipo_cita" required>
+    <option>Primera vez</option>
+    <option>Seguimiento</option>
+    <option>Urgencia</option>
+    <option>Interconsulta</option>
+</select>
+
+<label>Modalidad:</label>
+<select name="modalidad" required>
+    <option>Presencial</option>
+    <option>Virtual</option>
 </select>
 
 <label>Fecha:</label>
-<input type="date" name="fecha" required>
+<input type="date" id="fecha" name="fecha" required>
 
 <label>Hora:</label>
 <input type="time" name="hora" required>
+
+<label>Motivo De Consulta:</label>
+<input type="textarea" name="motivo_consulta">
 
 <button type="submit">Agendar Cita</button>
 
 </form>
 
 </div>
+
+<script>
+const hoy = new Date().toISOString().split("T")[0];
+document.getElementById("fecha_cita").min = hoy;
+</script>
 
 </body>
 </html>
