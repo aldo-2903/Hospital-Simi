@@ -92,7 +92,7 @@ a{
 	  <img src="imagen2/pacien.png" width="225" height="163" alt=""/>
 	</center>
 
-    <form id="formPaicente">
+    <form id="formPaciente">
 
         <input type="text" name=apellido_paterno placeholder="Apellido paterno" required>
 
@@ -136,7 +136,37 @@ a{
     </a>
 
 </div>
+	
+	<script>
+document.getElementById("formPaciente").addEventListener("submit", function(e){
 
+    e.preventDefault();
+
+    const datos = new FormData(this);
+
+    fetch("guardar_paciente.php", {
+        method: "POST",
+        body: datos
+    })
+    .then(res => res.text())
+    .then(data => {
+
+        if(data.trim() === "ok"){
+
+            alert("Perfil guardado");
+
+            window.location.href = "citas.php";
+
+        }else{
+
+            alert(data);
+
+        }
+
+    });
+
+});
+</script>
 
 </body>
 </html>
