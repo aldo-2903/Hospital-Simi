@@ -166,6 +166,27 @@ nav .login:hover{
 </head>
 <body>
 
+	<script>
+
+fetch("estado_sesion.php")
+.then(res => res.text())
+.then(data => {
+
+    if(data.trim() === "si"){
+
+        document.getElementById("btnLogin").style.display = "none";
+        document.getElementById("btnRegistro").style.display = "none";
+
+    }else{
+
+        document.getElementById("btnLogout").style.display = "none";
+
+    }
+
+});
+
+</script>
+
 <header>
     <h1>Hospital similares</h1>
    <img src="imagenes/Logo Dr.Simi.png" alt="Logo Dr. Simi" class="logo" width="250">
