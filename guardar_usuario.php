@@ -42,6 +42,17 @@ $stmt->execute([
     $passwordHash
 ]);
 
-echo "Usuario registrado correctamente";
+echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script>
+Swal.fire({
+  title: '¡Éxito!',
+  text: 'Usuario registrado correctamente',
+  icon: 'success',
+  confirmButtonText: 'OK'
+}).then(() => {
+  window.location.href = 'index.html';
+});
+</script>";
+exit();
 
 ?>
