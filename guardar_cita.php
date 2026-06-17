@@ -28,7 +28,7 @@ if(!$paciente){
 $idPaciente = $paciente['id_paciente'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
-$motivo_consulta = $_POST['motivo'];
+$motivo_consulta = $_POST['motivo_consulta'];
 $tipo_cita = $_POST['tipo_cita'];
 $modalidad = $_POST['modalidad'];
 
@@ -41,7 +41,7 @@ motivo_consulta,
 id_paciente,
 tipo_cita,
 modalidad,
-fecha_registro,
+fecha_registro
 )
 VALUES
 (
