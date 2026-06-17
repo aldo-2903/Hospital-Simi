@@ -6,6 +6,36 @@
 <title>Hospital Similares - Iniciar Sesión</title>
 
 <style>
+
+     .toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    background: #333;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-family: Arial;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+.toast.error {
+    background: #dc3545;
+}
+    
 *{
     margin:0;
     padding:0;
@@ -121,7 +151,7 @@ button:hover{
     <h1>Hospital Similares</h1>
     <p>Acceso al sistema de citas médicas</p>
 
-    <form action="validar.php" method="POST">
+    <form id="formLogin">
 
         <div class="input-group">
             <input type="email" name="correo" placeholder="Correo electrónico" required>
@@ -134,6 +164,36 @@ button:hover{
         <button type="submit">Iniciar Sesión</button>
 
     </form>
+    
+    <div id="toast" class="toast"></div>
+
+    <script>
+document.getElementById("formLogin").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const datos = new FormData(this);
+
+    fetch("login.php", {
+        method: "POST",
+        body: datos
+    })
+    .then(res => res.text())
+    .then(data => {
+
+        if(data.trim() === "ok"){
+            showToast("Bienvenido", "success");
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+
+        } else {
+            showToast("Correo o contraseña incorrectos", "error");
+        }
+
+    });
+});
+</script>
 
     <div class="registro">
         ¿No tienes cuenta?
