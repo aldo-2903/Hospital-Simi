@@ -108,13 +108,18 @@ document.getElementById("formUsuario").addEventListener("submit", function(e) {
     })
     .then(response => response.text())
     .then(data => {
-        alert("Usuario registrado correctamente"); 
-        document.getElementById("formUsuario").reset();
-    })
-    .catch(error => {
-        alert("Error al registrar usuario");
-        console.log(error);
-    });
+
+    if (data.trim() === "ok") {
+        alert("Usuario registrado correctamente");
+    } 
+    else if (data.includes("correo_duplicado")) {
+        alert("Este correo ya está registrado");
+    } 
+    else {
+        alert("Error: " + data);
+    }
+
+});
 });
 </script>
 
