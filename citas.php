@@ -137,7 +137,8 @@ button:hover{
 <label>Fecha:</label>
 <input type="date" id="fecha" name="fecha" required>
 
-<label>Hora:</label>
+<label>Hora (Horas completas) :</label>
+<label>Horario de atención de 07:00 a 22:00 hrs</label>
 <input type="time" id="hora" name="hora" min="07:00" max="22:00" step="3600" required>
 
 <label>Motivo De Consulta:</label>
