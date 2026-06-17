@@ -1,3 +1,26 @@
+<?php
+session_start();
+include("conexion.php");
+
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: iniciar.html");
+    exit;
+}
+
+$idUsuario = $_SESSION['usuario_id'];
+
+$sql = "
+SELECT nombre, correo, telefono
+FROM usuarios
+WHERE id_usuario = ?
+";
+
+$stmt = $conexion->prepare($sql);
+$stmt->execute([$idUsuario]);
+
+$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,6 +56,12 @@ input, select{
     margin:8px 0;
     border:1px solid #ccc;
     border-radius:5px;
+}
+
+input[readonly]{
+    background:#f0f0f0;
+    color:#555;
+    cursor:not-allowed;
 }
 
 button{
@@ -83,14 +112,14 @@ button:hover{
 
 <form id="guardar_cita">
 
-<label>Nombre completo:</label>
-<input type="text" name="nombre" required>
+<label>Nombre:</label>
+<input type="text" name="nombre" value="<?= htmlspecialchars($usuario['nombre']) ?>" readonly>
 
 <label>Correo electrónico:</label>
-<input type="email" name="correo" required>
+<input type="email" name="correo" value="<?= htmlspecialchars($usuario['correo']) ?>" readonly>
 
 <label>Teléfono:</label>
-<input type="tel" name="telefono" required>
+<input type="tel" name="telefono" value="<?= htmlspecialchars($usuario['telefono']) ?>" readonly>
 
 <label>Tipo De Cita:</label>
 <select name="tipo_cita" required>
