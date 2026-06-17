@@ -168,6 +168,20 @@ button:hover{
     <div id="toast" class="toast"></div>
 
     <script>
+
+         function showToast(message, type = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.className = "toast";
+    toast.textContent = message;
+
+    toast.classList.add("show", type);
+
+    setTimeout(() => {
+        toast.classList.remove("show", "success", "error");
+    }, 5000);
+}
+         
 document.getElementById("formLogin").addEventListener("submit", function(e){
     e.preventDefault();
 
