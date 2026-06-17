@@ -11,11 +11,6 @@ $passwordHash = password_hash(
     $password,
     PASSWORD_DEFAULT
 );
-echo $nombre . "<br>";
-echo $correo . "<br>";
-echo $telefono . "<br>";
-echo $password . "<br>";
-
 $sql = "
 INSERT INTO usuarios
 (
@@ -50,7 +45,7 @@ Swal.fire({
   icon: 'success',
   confirmButtonText: 'OK'
 }).then(() => {
-  window.location.href = 'index.html';
+  window.location.href = 'https://hospital-simi-production.up.railway.app/index.html';
 });
 </script>";
 exit();
