@@ -172,7 +172,7 @@ button:hover{
 <input type="time" id="hora" name="hora" min="07:00" max="22:00" step="3600" required>
 
 <label>Motivo De Consulta:</label>
-<input type="textarea" id="motivo" name="motivo_consulta" maxlength="99">
+<input type="text" id="motivo" name="motivo_consulta" maxlength="99">
 <small id="contador">0 / 99</small>
 
 <button type="submit">Agendar Cita</button>
@@ -209,6 +209,22 @@ const contador = document.getElementById("contador");
 </script>
 
 <script>
+function showToast(message, type = "success") {
+
+    const toast = document.getElementById("toast");
+
+    toast.className = "toast";
+    toast.textContent = message;
+
+    toast.classList.add("show", type);
+
+    setTimeout(() => {
+        toast.classList.remove("show", "success", "error");
+    }, 3000);
+}
+</script>
+    
+<script>
     document.getElementById("formCita").addEventListener("submit", function(e){
 
     e.preventDefault();
@@ -224,6 +240,10 @@ const contador = document.getElementById("contador");
     
         if(data.trim() === "ok"){
             showToast("Cita agendada correctamente", "success");
+            setTimeout(() => {
+            window.location.href = "index.html";
+        }, 2000);
+            
         }else{
             showToast(data, "error");
         }
