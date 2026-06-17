@@ -243,8 +243,24 @@ fetch("estado_sesion.php")
         .then(res => res.text())
         .then(data => {
 
-            if(data.trim() === "ok"){
-                window.location.href = "citas.html";
+			if(data.trim() === "ok"){
+				
+            fetch("verificar_paciente.php")
+            .then(res => res.text())
+            .then(resultado => {
+
+                if(resultado.trim() === "si_paciente"){
+
+                    window.location.href = "citas.php";
+
+                }else{
+
+                    window.location.href = "completar_paciente.php";
+
+                }
+
+            });
+			
             }else{
                 showToast("Debes iniciar sesión para agendar una cita", "error");
 
