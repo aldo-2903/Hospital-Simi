@@ -75,5 +75,4 @@ $stmt->execute([
 ]);
 
 echo "ok";
-window.location.href = "citas.php";
 ?>
