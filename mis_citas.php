@@ -183,7 +183,7 @@ tr:hover{
 <body>
     
 <div class="contenedor-boton">
-    <button class="btn-inicio" onclick="location.href='index.html'">Regresar</button>
+    <button class="btn-inicio" onclick="location.href='index.php'">Regresar</button>
 </div>
 
 <header class="encabezado">
