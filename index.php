@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -220,6 +224,13 @@ fetch("estado_sesion.php")
     <button onclick="location.href='servicios.html'">Servicios</button>
     <button id="btnLogin" class="login" onclick="location.href='iniciar.html'">Iniciar sesion</button>
 	<button id="mis_citas" onclick="location.href='mis_citas.php'" >Mis Citas</button>
+	
+	 <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
+        <button onclick="location.href='admin.php'">
+            ⚙️ Panel Admin
+        </button>
+    <?php endif; ?>
+	
 	<button id="btnLogout" class="logout">Cerrar sesión</button>
 </nav>
 	
