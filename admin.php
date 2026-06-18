@@ -211,6 +211,11 @@ button{
         onclick="location.href='index.php'">
         Inicio
     </button>
+    
+    <button class="btn_inicio"
+        onclick="location.href='medicos.php'">
+        Ver Médicos
+    </button>
 </div>
 
 <div class="stats">
