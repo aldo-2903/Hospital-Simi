@@ -55,6 +55,25 @@ $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <style>
 
+.encabezado{
+    background:linear-gradient(135deg,#0077b6,#00b4d8);
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+.encabezado h1{
+    margin:0;
+    font-size:40px;
+}
+
+.encabezado p{
+    margin-top:10px;
+    opacity:.9;
+}
+    
 body{
     background:#f4f9fc;
     font-family:Arial,sans-serif;
@@ -91,10 +110,17 @@ tr:hover{
 
 .cita{
     background:white;
-    padding:20px;
+    padding:25px;
     margin-bottom:20px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,.15);
+    border-radius:15px;
+    box-shadow:0 6px 15px rgba(0,0,0,.12);
+    border-left:8px solid #0077b6;
+    transition:.3s;
+}
+
+.cita:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
 .cita h3{
@@ -103,12 +129,22 @@ tr:hover{
 }
 
 .cancelar{
-    background:#dc3545;
+    width:100%;
     margin-top:15px;
+    background:#dc3545;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .cancelar:hover{
-    background:#c82333;
+    background:#b02a37;
+    transform:scale(1.02);
 }
 
 .estado{
@@ -146,10 +182,13 @@ tr:hover{
 </span>
     
 <button class="btn-inicio" onclick="location.href='index.html'">Regresar</button>
+
+<header class="encabezado">
+    <h1>Mis Citas</h1>
+    <p>Consulta y administra tus citas médicas</p>
+</header>
     
 <div class="contenedor">
-
-<h1>Mis Citas</h1>
 
 <?php foreach($citas as $cita): ?>
 
@@ -174,6 +213,10 @@ switch($cita['estado']){
     case "Cancelada":
         $color = "#dc3545";
         break;
+
+    $fechaCita = strtotime($cita['fecha_cita']);
+    $hoy = strtotime(date("Y-m-d"));
+    $dias = floor(($fechaCita - $hoy) / 86400);
 }
 
 ?>
@@ -200,7 +243,7 @@ switch($cita['estado']){
 
     <?php if($cita['estado'] == "Programada"): ?>
 
-    <form action="cancelar_cita.php" method="POST">
+    <form action="cancelar_cita.php" method="POST" onsubmit="return confirm('¿Seguro que deseas cancelar esta cita?')">
 
         <input
             type="hidden"
