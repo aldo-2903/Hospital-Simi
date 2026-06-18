@@ -33,6 +33,24 @@ $stmt->execute();
 
 $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$total = count($citas);
+
+$programadas = 0;
+$confirmadas = 0;
+$atendidas = 0;
+
+foreach($citas as $c){
+
+    if($c['estado'] == "Programada")
+        $programadas++;
+
+    if($c['estado'] == "Confirmada")
+        $confirmadas++;
+
+    if($c['estado'] == "Atendida")
+        $atendidas++;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -52,27 +70,28 @@ h1{
 }
 
 table{
-    width:95%;
-    margin:20px auto;
+    width:100%;
     border-collapse:collapse;
     background:white;
-    box-shadow:0 0 10px rgba(0,0,0,.15);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,.1);
 }
 
 th{
     background:#0d47a1;
     color:white;
-    padding:12px;
+    padding:15px;
 }
 
 td{
-    padding:10px;
-    border:1px solid #ddd;
+    padding:12px;
+    border-bottom:1px solid #eee;
     text-align:center;
 }
 
 tr:hover{
-    background:#f5f5f5;
+    background:#f8fbff;
 }
 
 select{
@@ -81,18 +100,49 @@ select{
     border:1px solid #ccc;
 }
 
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:95%;
+    margin:20px auto;
+}
+
+.topbar h1{
+    margin:0;
+    color:#0d47a1;
+}
+
+.btn_inicio{
+    background:#f4c542;
+    color:black;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn_inicio:hover{
+    transform:scale(1.05);
+    background:#e0b52f;
+}
+    
 .btn_actualizar{
-    margin-top:5px;
+    margin-top:8px;
     background:#28a745;
     color:white;
     border:none;
-    padding:8px 12px;
+    padding:8px 14px;
     border-radius:6px;
     cursor:pointer;
     font-weight:bold;
+    transition:.3s;
 }
 
 .btn_actualizar:hover{
+    transform:scale(1.05);
     background:#218838;
 }
     
@@ -105,13 +155,78 @@ button{
     cursor:pointer;
 }
 
+.estado{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    font-weight:bold;
+}
+
+.stats{
+    width:95%;
+    margin:20px auto;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    width:180px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+.card h2{
+    color:#0d47a1;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-weight:bold;
+}
+    
 </style>
 
 </head>
 <body>
 
-<h1>Panel de Administración</h1>
+<div class="topbar">
+    <h1>Panel de Administración</h1>
 
+    <button class="btn_inicio"
+            onclick="location.href='index.php'">
+            Inicio
+    </button>
+</div>
+
+<div class="stats">
+
+    <div class="card">
+        <h2><?= $total ?></h2>
+        <p>Total Citas</p>
+    </div>
+
+    <div class="card">
+        <h2><?= $programadas ?></h2>
+        <p>Programadas</p>
+    </div>
+
+    <div class="card">
+        <h2><?= $confirmadas ?></h2>
+        <p>Confirmadas</p>
+    </div>
+
+    <div class="card">
+        <h2><?= $atendidas ?></h2>
+        <p>Atendidas</p>
+    </div>
+
+</div>
+    
 <table>
 
 <tr>
@@ -145,7 +260,42 @@ button{
 
 <td><?= $cita['modalidad'] ?></td>
 
-<td><?= $cita['estado'] ?></td>
+<td>
+<?php
+$color = "#6c757d";
+
+switch($cita['estado']){
+
+    case "Programada":
+        $color = "#ffc107";
+        break;
+
+    case "Confirmada":
+        $color = "#28a745";
+        break;
+
+    case "En espera":
+        $color = "#fd7e14";
+        break;
+
+    case "Atendida":
+        $color = "#007bff";
+        break;
+
+    case "Cancelada":
+        $color = "#dc3545";
+        break;
+
+    case "No asistió":
+        $color = "#343a40";
+        break;
+}
+?>
+<span class="estado"
+      style="background:<?= $color ?>">
+    <?= $cita['estado'] ?>
+</span>>
+</td>
 
 <td>
     
