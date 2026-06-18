@@ -85,7 +85,11 @@ body{
     margin:30px auto;
 }
 
-
+.contenedor-boton{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+}
     
 table{
     width:100%;
@@ -177,12 +181,10 @@ tr:hover{
 
 </head>
 <body>
-
-<span class="estado" style="background:<?= $color ?>">
-    <?= $cita['estado'] ?>
-</span>
     
-<button class="btn-inicio" onclick="location.href='index.html'">Regresar</button>
+<div class="contenedor-boton">
+    <button class="btn-inicio" onclick="location.href='index.html'">Regresar</button>
+</div>
 
 <header class="encabezado">
     <h1>Mis Citas</h1>
