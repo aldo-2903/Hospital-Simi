@@ -150,7 +150,21 @@ button{
 <td><?= $cita['estado'] ?></td>
 
 <td>
+    
+<?php if($cita['estado'] == 'Cancelada'): ?>
 
+    <span style="
+        color:white;
+        background:#dc3545;
+        padding:8px 12px;
+        border-radius:6px;
+        font-weight:bold;
+    ">
+        Cita cancelada
+    </span>
+
+<?php else: ?>
+    
 <form action="actualizar_estado.php" method="POST" onsubmit="return confirm('¿Deseas actualizar el estado de esta cita?')" >
 
     <input
@@ -175,10 +189,6 @@ button{
 
         <option value="Atendida" <?= $cita['estado']=="Atendida" ? "selected" : "" ?>>
             Atendida
-        </option>
-
-        <option value="Cancelada" <?= $cita['estado']=="Cancelada" ? "selected" : "" ?>>
-            Cancelada
         </option>
 
         <option value="No asistió" <?= $cita['estado']=="No asistió" ? "selected" : "" ?>>
