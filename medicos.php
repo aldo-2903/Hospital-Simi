@@ -110,7 +110,7 @@ tr:hover{
     background:#e0b52f;
 }
 
-.btn-agregar{
+.btn_agregar{
     background:#28a745;
     color:white;
     border:none;
@@ -121,7 +121,7 @@ tr:hover{
     margin:20px;
 }
 
-.btn-agregar:hover{
+.btn_agregar:hover{
     background:#218838;
 }
 
@@ -175,10 +175,6 @@ tr:hover{
 <td><?= $medico['estado'] ?></td>
 
 <td><?= $medico['años_experiencia'] ?> años</td>
-
-<td>
-    Editar
-</td>
 
 </tr>
 
