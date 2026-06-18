@@ -25,7 +25,7 @@ p.apellido_materno
 FROM cita c
 INNER JOIN paciente p
 ON c.id_paciente = p.id_paciente
-ORDER BY c.fecha_cita DESC, c.hora_cita DESC
+ORDER BY c.fecha_cita ASC, c.hora_cita ASC
 ";
 
 $stmt = $conexion->prepare($sql);
@@ -102,6 +102,8 @@ button{
     <th>Paciente</th>
     <th>Fecha</th>
     <th>Hora</th>
+    <th>Tipo</th>
+    <th>Modalidad</th>
     <th>Estado</th>
 </tr>
 
@@ -109,19 +111,27 @@ button{
 
 <tr>
 
+<tr>
+
 <td><?= $cita['id_cita'] ?></td>
 
 <td>
-<?= $cita['nombre'] ?>
-<?= $cita['apellido_paterno'] ?>
-<?= $cita['apellido_materno'] ?>
+<?= $cita['nombre'] . " " .
+   $cita['apellido_paterno'] . " " .
+   $cita['apellido_materno'] ?>
 </td>
 
 <td><?= $cita['fecha_cita'] ?></td>
 
 <td><?= substr($cita['hora_cita'],0,5) ?></td>
 
+<td><?= $cita['tipo_cita'] ?></td>
+
+<td><?= $cita['modalidad'] ?></td>
+
 <td><?= $cita['estado'] ?></td>
+
+</tr>
 
 </tr>
 
