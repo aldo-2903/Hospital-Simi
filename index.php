@@ -219,7 +219,7 @@ fetch("estado_sesion.php")
 </header>
 
 <nav>
-    <button onclick="location.href='index.html'">Inicio</button>
+    <button onclick="location.href='index.php'">Inicio</button>
     <button id="btnCita">Citas</button>
     <button onclick="location.href='servicios.html'">Servicios</button>
     <button id="btnLogin" class="login" onclick="location.href='iniciar.html'">Iniciar sesion</button>
