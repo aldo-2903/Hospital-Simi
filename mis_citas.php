@@ -156,6 +156,7 @@ tr:hover{
 }
 
 .btn-inicio{
+    width:auto !important;
     background:#f4c542;
     color:black;
     border:none;
