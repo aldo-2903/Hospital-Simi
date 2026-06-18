@@ -76,9 +76,26 @@ tr:hover{
 }
 
 select{
-    padding:6px;
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
 }
 
+.btn_actualizar{
+    margin-top:5px;
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn_actualizar:hover{
+    background:#218838;
+}
+    
 button{
     background:#28a745;
     color:white;
@@ -105,6 +122,7 @@ button{
     <th>Tipo</th>
     <th>Modalidad</th>
     <th>Estado</th>
+    <th>Acciones</th>
 </tr>
 
 <?php foreach($citas as $cita): ?>
@@ -131,6 +149,52 @@ button{
 
 <td><?= $cita['estado'] ?></td>
 
+<td>
+
+<form action="actualizar_estado.php" method="POST" onsubmit="return confirm('¿Deseas actualizar el estado de esta cita?')" >
+
+    <input
+        type="hidden"
+        name="id_cita"
+        value="<?= $cita['id_cita'] ?>"
+    >
+
+    <select name="estado">
+
+        <option value="Programada" <?= $cita['estado']=="Programada" ? "selected" : "" ?>>
+            Programada
+        </option>
+
+        <option value="Confirmada" <?= $cita['estado']=="Confirmada" ? "selected" : "" ?>>
+            Confirmada
+        </option>
+
+        <option value="En espera" <?= $cita['estado']=="En espera" ? "selected" : "" ?>>
+            En espera
+        </option>
+
+        <option value="Atendida" <?= $cita['estado']=="Atendida" ? "selected" : "" ?>>
+            Atendida
+        </option>
+
+        <option value="Cancelada" <?= $cita['estado']=="Cancelada" ? "selected" : "" ?>>
+            Cancelada
+        </option>
+
+        <option value="No asistió" <?= $cita['estado']=="No asistió" ? "selected" : "" ?>>
+            No asistió
+        </option>
+
+    </select>
+
+    <button type="submit" class="btn_actualizar">
+        Actualizar
+    </button>
+
+</form>
+
+</td>
+    
 </tr>
 
 </tr>
