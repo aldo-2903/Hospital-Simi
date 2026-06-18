@@ -129,8 +129,6 @@ button{
 
 <tr>
 
-<tr>
-
 <td><?= $cita['id_cita'] ?></td>
 
 <td>
@@ -203,9 +201,9 @@ button{
 
 </form>
 
-</td>
+<?php endif; ?>
     
-</tr>
+</td>
 
 </tr>
 
