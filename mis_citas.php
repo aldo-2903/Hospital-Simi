@@ -217,11 +217,23 @@ switch($cita['estado']){
     $fechaCita = strtotime($cita['fecha_cita']);
     $hoy = strtotime(date("Y-m-d"));
     $dias = floor(($fechaCita - $hoy) / 86400);
+
+    if($cita['estado'] == "Cancelada"){
+    $textoDias = "❌ Cita cancelada";
+}
+    
+    if($dias > 0){
+    $textoDias = "⏳ Faltan $dias días";
+    }elseif($dias == 0){
+    $textoDias = "La cita es hoy";
+    }else{
+    $textoDias = "Fecha pasada";
+}
 }
 
 ?>
 
-<div class="cita">
+<div class="cita" style="border-left:8px solid <?= $borde ?>">
 
     <h3>
         <?= $cita['fecha_cita'] ?>
