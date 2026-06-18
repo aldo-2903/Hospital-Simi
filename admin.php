@@ -106,20 +106,18 @@ select{
     background:#0d47a1;
     color:white;
     padding:25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    position:relative;
+    text-align:center;
 }
 
-.header_admin h1{
+.titulo_admin h1{
     margin:0;
-    align-items:center;
+    font-size:38px;
 }
 
-.header_admin p{
-    margin-top:5px;
-    opacity:.9;
+.titulo_admin p{
+    margin-top:8px;
+    font-size:18px;
 }
 
 .btn_inicio{
@@ -203,12 +201,14 @@ button{
 <body>
 
 <div class="header_admin">
-    <h1>Panel de Administración</h1>
-    <p>Gestión de citas médicas</p>
+    <div class="titulo_admin">
+        <h1>Panel de Administración</h1>
+        <p>Gestión de citas médicas</p>
+    </div> 
 
     <button class="btn_inicio"
-            onclick="location.href='index.php'">
-            Inicio
+        onclick="location.href='index.php'">
+        Inicio
     </button>
 </div>
 
