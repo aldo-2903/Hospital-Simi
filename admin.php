@@ -114,6 +114,7 @@ select{
 
 .header_admin h1{
     margin:0;
+    align-items:center;
 }
 
 .header_admin p{
