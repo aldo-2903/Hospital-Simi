@@ -110,6 +110,21 @@ tr:hover{
     background:#e0b52f;
 }
 
+.btn-agregar{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    margin:20px;
+}
+
+.btn-agregar:hover{
+    background:#218838;
+}
+
 </style>
 
 </head>
@@ -126,6 +141,12 @@ tr:hover{
     </button>
 </div>
 
+
+<button class="btn_agregar"
+        onclick="location.href='agregar_medico.php'">
+        Agregar Médico
+</button>
+    
 <table>
 
 <tr>
