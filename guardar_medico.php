@@ -11,7 +11,7 @@ apellido_materno,
 cedula_profesional,
 telefono,
 correo,
-años_experiencia,
+años_experiencia
 )
 VALUES
 (
@@ -34,7 +34,7 @@ $stmt->execute([
     $_POST['cedula_profesional'],
     $_POST['telefono'],
     $_POST['correo'],
-    $_POST['años_experiencia'],
+    $_POST['años_experiencia']
 ]);
 
 header("Location: medicos.php");
