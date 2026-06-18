@@ -38,8 +38,10 @@ $medicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <style>
 
 body{
-    background:#f4f9fc;
-    font-family:Arial,sans-serif;
+    font-family: Arial, sans-serif;
+    background:linear-gradient(135deg,#e3f2fd,#f4f9fc);
+    margin:0;
+    min-height:100vh;
 }
 
 h1{
@@ -48,36 +50,45 @@ h1{
 }
 
 table{
-    width:90%;
-    margin:auto;
+    width:95%;
+    margin:30px auto;
     border-collapse:collapse;
     background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 th{
-    background:#0d47a1;
+    background:#1565c0;
     color:white;
-    padding:12px;
+    padding:15px;
+    font-size:15px;
 }
 
 td{
-    padding:10px;
-    border:1px solid #ddd;
-    text-align:center;
+    padding:14px;
+    border-bottom:1px solid #eee;
 }
 
 tr:hover{
-    background:#f5f5f5;
+    background:#f5faff;
 }
 
-.btn-inicio{
-    margin:20px;
-    padding:10px 20px;
+.btn_inicio{
     background:#f4c542;
+    color:black;
     border:none;
+    padding:12px 20px;
     border-radius:8px;
     cursor:pointer;
     font-weight:bold;
+    transition:.3s;
+}
+
+.btn_inicio:hover{
+    transform:scale(1.05);
+    background:#e0b52f;
 }
 
 </style>
