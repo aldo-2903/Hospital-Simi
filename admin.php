@@ -113,6 +113,7 @@ select{
 .titulo_admin h1{
     margin:0;
     font-size:38px;
+    color:white;
 }
 
 .titulo_admin p{
