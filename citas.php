@@ -132,7 +132,7 @@ button:hover{
 <center>
     <button type="button"
             class="boton-inicio"
-            onclick="location.href='index.html'">
+            onclick="location.href='index.php'">
          Inicio
     </button>
 </center>
@@ -241,7 +241,7 @@ function showToast(message, type = "success") {
         if(data.trim() === "ok"){
             showToast("Cita agendada correctamente", "success");
             setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         }, 2000);
             
         }else{
