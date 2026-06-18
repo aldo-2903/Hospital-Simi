@@ -86,6 +86,25 @@ tr:hover{
     transition:.3s;
 }
 
+.header_admin{
+    background:#0d47a1;
+    color:white;
+    padding:25px;
+    position:relative;
+    text-align:center;
+}
+
+.titulo_admin h1{
+    margin:0;
+    font-size:38px;
+    color:white;
+}
+
+.titulo_admin p{
+    margin-top:8px;
+    font-size:18px;
+}
+    
 .btn_inicio:hover{
     transform:scale(1.05);
     background:#e0b52f;
@@ -96,12 +115,16 @@ tr:hover{
 </head>
 <body>
 
-<button class="btn_inicio"
+<div class="header_admin">
+    <div class="titulo_admin">
+        <h1>Medicos  Registrados</h1>
+    </div> 
+
+    <button class="btn_inicio"
         onclick="location.href='admin.php'">
     ← Regresar
-</button>
-
-<h1>Médicos Registrados</h1>
+    </button>
+</div>
 
 <table>
 
