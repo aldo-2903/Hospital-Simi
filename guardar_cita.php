@@ -33,6 +33,27 @@ $tipo_cita = $_POST['tipo_cita'];
 $modalidad = $_POST['modalidad'];
 
 $sql = "
+SELECT COUNT(*) as total
+FROM cita
+WHERE fecha_cita = ?
+AND hora_cita = ?
+AND estado <> 'Cancelada'
+";
+
+$stmt = $conexion->prepare($sql);
+$stmt->execute([
+    $_POST['fecha'],
+    $_POST['hora']
+]);
+
+$existe = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if($existe['total'] > 0){
+    echo "Ya existe una cita agendada en esa fecha y hora";
+    exit;
+}
+
+$sql = "
 INSERT INTO cita
 (
 fecha_cita,
