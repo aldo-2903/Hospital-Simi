@@ -155,7 +155,6 @@ tr:hover{
     <th>Teléfono</th>
     <th>Estado</th>
     <th>Experiencia</th>
-    <th>Acciones</th>
 </tr>
 
 <?php foreach($medicos as $medico): ?>
