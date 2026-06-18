@@ -59,9 +59,10 @@ foreach($citas as $c){
 <style>
 
 body{
-    font-family:Arial;
-    background:#f4f9fc;
+    font-family: Arial, sans-serif;
+    background:linear-gradient(135deg,#e3f2fd,#f4f9fc);
     margin:0;
+    min-height:100vh;
 }
 
 h1{
@@ -70,28 +71,29 @@ h1{
 }
 
 table{
-    width:100%;
+    width:95%;
+    margin:30px auto;
     border-collapse:collapse;
     background:white;
-    border-radius:12px;
+    border-radius:15px;
     overflow:hidden;
-    box-shadow:0 0 20px rgba(0,0,0,.1);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 th{
-    background:#0d47a1;
+    background:#1565c0;
     color:white;
     padding:15px;
+    font-size:15px;
 }
 
 td{
-    padding:12px;
+    padding:14px;
     border-bottom:1px solid #eee;
-    text-align:center;
 }
 
 tr:hover{
-    background:#f8fbff;
+    background:#f5faff;
 }
 
 select{
@@ -100,17 +102,23 @@ select{
     border:1px solid #ccc;
 }
 
-.topbar{
+.header_admin{
+    background:#0d47a1;
+    color:white;
+    padding:25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:95%;
-    margin:20px auto;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
 
-.topbar h1{
+.header_admin h1{
     margin:0;
-    color:#0d47a1;
+}
+
+.header_admin p{
+    margin-top:5px;
+    opacity:.9;
 }
 
 .btn_inicio{
@@ -130,20 +138,18 @@ select{
 }
     
 .btn_actualizar{
-    margin-top:8px;
-    background:#28a745;
+    background:linear-gradient(45deg,#28a745,#34ce57);
     color:white;
     border:none;
-    padding:8px 14px;
-    border-radius:6px;
-    cursor:pointer;
+    padding:8px 15px;
+    border-radius:8px;
     font-weight:bold;
+    cursor:pointer;
     transition:.3s;
 }
 
 .btn_actualizar:hover{
-    transform:scale(1.05);
-    background:#218838;
+    transform:scale(1.08);
 }
     
 button{
@@ -156,11 +162,12 @@ button{
 }
 
 .estado{
-    display:inline-block;
-    padding:6px 12px;
-    border-radius:20px;
+    padding:8px 14px;
+    border-radius:30px;
     color:white;
     font-weight:bold;
+    display:inline-block;
+    min-width:110px;
 }
 
 .stats{
@@ -194,8 +201,9 @@ button{
 </head>
 <body>
 
-<div class="topbar">
+<div class="header_admin">
     <h1>Panel de Administración</h1>
+    <p>Gestión de citas médicas</p>
 
     <button class="btn_inicio"
             onclick="location.href='index.php'">
